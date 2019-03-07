@@ -16,9 +16,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        letsLearnSignal()
+        letsLearnSignal()
 
-        createSignalInAnotherWay()
+//        createSignalInAnotherWay()
 
 //        transformedSignal()
 
@@ -492,8 +492,5 @@ class ViewController: UIViewController {
         getChainedSignalProducer().startWithResult({ result in
             print("Result: \(result)")
         })
-
-        var a = 10 + 15
-        print(a)
     }
 }
