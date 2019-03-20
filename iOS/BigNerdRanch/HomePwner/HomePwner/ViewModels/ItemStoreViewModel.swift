@@ -23,8 +23,11 @@ class ItemStoreViewModel {
         }
     }
     
-    private var allItems: [Section: [Item]] = [.regular: [Item](),
-                                    .premium: [Item]()]
+    private var allItems: [Item] = [Item]()
+    private var itemsInSection: [Section: [Item]] {
+        return [.regular: allItems.filter({ $0.valueInDollars <= 50 }),
+                .premium: allItems.filter({ $0.valueInDollars > 50 })]
+    }
     
     var numberOfSection: Int {
         // Extra `1` for `No More Item` Section
@@ -37,7 +40,7 @@ class ItemStoreViewModel {
     
     func numberOfRows(in sectionNumber: Int) -> Int {
         // `No more item` section
-        guard let section = Section(rawValue: sectionNumber), let itemCount = allItems[section]?.count else {
+        guard let section = Section(rawValue: sectionNumber), let itemCount = itemsInSection[section]?.count else {
             return 1
         }
         return itemCount
@@ -57,7 +60,7 @@ class ItemStoreViewModel {
             return nil
         }
         
-        guard let item = allItems[section]?[indexPath.row] else {
+        guard let item = itemsInSection[section]?[indexPath.row] else {
             return nil
         }
         
@@ -66,7 +69,7 @@ class ItemStoreViewModel {
     
     func getIndexPath(for item: Item) -> IndexPath? {
         for section in Section.allCases {
-            if let index = allItems[section]?.lastIndex(of: item) {
+            if let index = itemsInSection[section]?.lastIndex(of: item) {
                 return IndexPath(row: index, section: section.rawValue)
             }
         }
@@ -75,18 +78,13 @@ class ItemStoreViewModel {
     
     @discardableResult func createItem() -> Item {
         let newItem = Item(random: true)
-        
-        let itemType = newItem.valueInDollars <= 50 ? 0 : 1
-        allItems[Section(rawValue: itemType)!]?.append(newItem)
+        allItems.append(newItem)
         return newItem
     }
     
     func removeItem(_ item: Item) {
-        for section in Section.allCases {
-            if let index = allItems[section]?.firstIndex(of: item) {
-                allItems[section]?.remove(at: index)
-                break
-            }
+        if let index = allItems.firstIndex(of: item) {
+            allItems.remove(at: index)
         }
     }
     
@@ -107,12 +105,32 @@ class ItemStoreViewModel {
             return
         }
         
+        // Lot's of tricks :'(
         let fromIndex = fromIndexPath.row
         let toIndex = toIndexPath.row
         
-        if let section = Section(rawValue: fromIndexPath.section), let movedItem = allItems[section]?[fromIndex] {
-            allItems[section]?.remove(at: fromIndex)
-            allItems[section]?.insert(movedItem, at: toIndex)
+        var regularItems = itemsInSection[.regular]
+        var premiumItems = itemsInSection[.premium]
+        
+        if let section = Section(rawValue: fromIndexPath.section),
+            let movedItem = itemsInSection[section]?[fromIndex] {
+            
+            switch section {
+            case .regular:
+                regularItems?.remove(at: fromIndex)
+                regularItems?.insert(movedItem, at: toIndex)
+            case .premium:
+                premiumItems?.remove(at: fromIndex)
+                premiumItems?.insert(movedItem, at: toIndex)
+            }
+            
+            allItems.removeAll()
+            if let __regularItems = regularItems {
+                allItems.append(contentsOf: __regularItems)
+            }
+            if let __premiumItems = premiumItems {
+                allItems.append(contentsOf: __premiumItems)
+            }
         }
     }
 }

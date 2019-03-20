@@ -11,22 +11,39 @@ import UIKit
 class ItemsViewController: UITableViewController {
     var itemStoreModel: ItemStoreViewModel!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Get the height of the status bar
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        /**
+         No need to use the following code now as we are using navigation controller
         
+         // Get the height of the status bar
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+         
+         **/
         
         // Make table view row height dynamic
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
     }
     
-    @IBAction func addNewItem(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let item = itemStoreModel.createItem()
         /**
          We can insert row at particular index using insertRows() method
@@ -41,6 +58,10 @@ class ItemsViewController: UITableViewController {
         }
     }
     
+    /**
+     The follwing code is obsolete as we use system provided `editButtonItem`
+     that has built in toggle mechanism
+ 
     @IBAction func toggleEditingMode(_ sender: UIButton) {
         // Currently in editing mode
         if isEditing {
@@ -55,6 +76,7 @@ class ItemsViewController: UITableViewController {
             setEditing(true, animated: true)
         }
     }
+     **/
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return itemStoreModel.numberOfSection
@@ -129,5 +151,26 @@ class ItemsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         itemStoreModel.moveItem(from: sourceIndexPath, to: destinationIndexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowItemDetail":
+            guard let indexPath = tableView.indexPathForSelectedRow else {
+                return
+            }
+            
+            guard let item = itemStoreModel.getItem(using: indexPath) else {
+                return
+            }
+            
+            guard let detailViewController = segue.destination as? DetailViewController else {
+                return
+            }
+                
+            detailViewController.item = item
+        default:
+            preconditionFailure("Unexpected segue identifier!")
+        }
     }
 }
