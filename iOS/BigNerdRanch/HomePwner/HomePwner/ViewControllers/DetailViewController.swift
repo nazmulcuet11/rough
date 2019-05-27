@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var serialNumberField: UITextField!
     @IBOutlet weak var valueField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var changeDateButton: UIButton!
+    
     
     var item: Item! {
         didSet {
@@ -34,6 +36,12 @@ class DetailViewController: UIViewController {
         formatter.timeStyle = .none
         return formatter
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        changeDateButton.layer.cornerRadius = 5.0
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,6 +70,20 @@ class DetailViewController: UIViewController {
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "PickDateCreated":
+            guard let datePickerController = segue.destination as? DatePickerViewController else {
+                return
+            }
+            
+            datePickerController.item = item
+            
+        default:
+            preconditionFailure("Unexpected segue identifier!. Expected: PickDateCreated, Found: \(String(describing: segue.identifier))")
+        }
     }
 }
 

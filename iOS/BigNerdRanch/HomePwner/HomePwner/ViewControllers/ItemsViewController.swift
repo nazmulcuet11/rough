@@ -170,7 +170,7 @@ class ItemsViewController: UITableViewController {
                 
             detailViewController.item = item
         default:
-            preconditionFailure("Unexpected segue identifier!")
+            preconditionFailure("Unexpected segue identifier!. Expected: ShowItemDetail, Found: \(String(describing: segue.identifier))")
         }
     }
 }

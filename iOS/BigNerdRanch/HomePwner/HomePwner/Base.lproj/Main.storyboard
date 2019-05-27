@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NWi-tR-2m5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NWi-tR-2m5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,7 +102,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ptn-TU-JEG">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ptn-TU-JEG" customClass="ItemField" customModule="HomePwner" customModuleProvider="target">
                                                 <rect key="frame" x="53" y="0.0" width="290" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -122,7 +122,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBv-DZ-Ft8">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBv-DZ-Ft8" customClass="ItemField" customModule="HomePwner" customModuleProvider="target">
                                                 <rect key="frame" x="53" y="0.0" width="290" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -142,23 +142,46 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1yv-Nd-yue">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1yv-Nd-yue" customClass="ItemField" customModule="HomePwner" customModuleProvider="target">
                                                 <rect key="frame" x="53" y="0.0" width="290" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="E6w-VI-Xok" id="OmC-f9-Vqz"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZV-cT-jtQ">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExW-ER-Kid">
                                         <rect key="frame" x="0.0" y="114" width="343" height="443"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZV-cT-jtQ">
+                                                <rect key="frame" x="121" y="211.5" width="101.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiI-A7-MId">
+                                                <rect key="frame" x="116.5" y="242" width="110" height="28"/>
+                                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                <state key="normal" title="Change Date">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="hYu-HD-t5F" kind="show" identifier="PickDateCreated" id="ugC-jB-3rB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="PiI-A7-MId" firstAttribute="centerX" secondItem="ExW-ER-Kid" secondAttribute="centerX" id="94V-Oq-qWj"/>
+                                            <constraint firstItem="gZV-cT-jtQ" firstAttribute="centerX" secondItem="ExW-ER-Kid" secondAttribute="centerX" id="HMA-Rc-FSl"/>
+                                            <constraint firstItem="PiI-A7-MId" firstAttribute="top" secondItem="gZV-cT-jtQ" secondAttribute="bottom" constant="10" id="X4Z-3X-bRN"/>
+                                            <constraint firstItem="gZV-cT-jtQ" firstAttribute="centerY" secondItem="ExW-ER-Kid" secondAttribute="centerY" id="bsU-TV-6OF"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ptn-TU-JEG" firstAttribute="leading" secondItem="SBv-DZ-Ft8" secondAttribute="leading" id="5Hk-pY-RxV"/>
@@ -180,6 +203,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="changeDateButton" destination="PiI-A7-MId" id="I45-R8-vlB"/>
                         <outlet property="dateLabel" destination="gZV-cT-jtQ" id="eIE-fX-E9O"/>
                         <outlet property="nameField" destination="ptn-TU-JEG" id="fCw-qu-UuA"/>
                         <outlet property="serialNumberField" destination="SBv-DZ-Ft8" id="Obh-Pf-PDp"/>
@@ -212,6 +236,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKn-BZ-KRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="236" y="27"/>
+        </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="7TD-2q-zMT">
+            <objects>
+                <viewController id="hYu-HD-t5F" customClass="DatePickerViewController" customModule="HomePwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Pb-ld-Y1C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4y5-zV-1jA">
+                                <rect key="frame" x="16" y="165.5" width="343" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="41W-s1-aKw"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="580637593.58570504">
+                                    <!--2019-05-27 08:13:13 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4y5-zV-1jA" firstAttribute="leading" secondItem="whA-f1-Ury" secondAttribute="leading" constant="16" id="NeW-0a-Z0s"/>
+                            <constraint firstItem="4y5-zV-1jA" firstAttribute="centerY" secondItem="whA-f1-Ury" secondAttribute="centerY" id="fwk-Qg-yrg"/>
+                            <constraint firstItem="whA-f1-Ury" firstAttribute="trailing" secondItem="4y5-zV-1jA" secondAttribute="trailing" constant="16" id="fwp-Z2-Tkd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="whA-f1-Ury"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="4y5-zV-1jA" id="n7a-iR-aib"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azE-wl-JyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2597.5999999999999" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>
