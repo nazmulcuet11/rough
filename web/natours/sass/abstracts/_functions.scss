@@ -1,0 +1,4 @@
+@function calculateColumnWidth($numberOfColumn) {
+    $column-width: "((100% - (11 * #{$gutter-horizontal})) / 12)";
+    @return calc(#{$numberOfColumn} * #{$column-width} + (#{$numberOfColumn} - 1) * #{$gutter-horizontal});
+  }
