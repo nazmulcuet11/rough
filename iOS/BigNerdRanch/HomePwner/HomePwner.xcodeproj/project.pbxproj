@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C005A1A229D0A4C000B6AA9 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C005A19229D0A4C000B6AA9 /* ImageStore.swift */; };
+		7C005A1D229DC1F8000B6AA9 /* CrosshairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C005A1C229DC1F8000B6AA9 /* CrosshairView.swift */; };
 		7C5872152233D86300C47691 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5872142233D86300C47691 /* ItemCell.swift */; };
 		7C62A19922341B01004495AA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62A19822341B01004495AA /* DetailViewController.swift */; };
 		7C6E4CB6229BD8D600602FA4 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E4CB5229BD8D600602FA4 /* DatePickerViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		7C005A19229D0A4C000B6AA9 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		7C005A1C229DC1F8000B6AA9 /* CrosshairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosshairView.swift; sourceTree = "<group>"; };
 		7C5872142233D86300C47691 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		7C62A19822341B01004495AA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7C6E4CB5229BD8D600602FA4 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C005A1B229DC1A7000B6AA9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7C005A1C229DC1F8000B6AA9 /* CrosshairView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		7C5872122233D65500C47691 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		7C7C74282232E0440037D71D /* HomePwner */ = {
 			isa = PBXGroup;
 			children = (
+				7C005A1B229DC1A7000B6AA9 /* Extension */,
 				7C5872132233D66800C47691 /* ViewControllers */,
 				7C5872122233D65500C47691 /* ViewModels */,
 				7C7C74292232E0440037D71D /* AppDelegate.swift */,
@@ -178,6 +189,7 @@
 				7C7C743E2232EB180037D71D /* ItemStoreViewModel.swift in Sources */,
 				7C62A19922341B01004495AA /* DetailViewController.swift in Sources */,
 				7C6E4CB6229BD8D600602FA4 /* DatePickerViewController.swift in Sources */,
+				7C005A1D229DC1F8000B6AA9 /* CrosshairView.swift in Sources */,
 				7C005A1A229D0A4C000B6AA9 /* ImageStore.swift in Sources */,
 				7C7C742A2232E0440037D71D /* AppDelegate.swift in Sources */,
 				7CAB359D22429A68002446EF /* ItemField.swift in Sources */,

@@ -76,6 +76,7 @@ class DetailViewController: UIViewController {
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
+            imagePicker.cameraOverlayView = CrosshairView(frame: view.bounds)
         } else {
             imagePicker.sourceType = .photoLibrary
         }
@@ -123,7 +124,7 @@ extension DetailViewController: UINavigationControllerDelegate {
 
 extension DetailViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
         
