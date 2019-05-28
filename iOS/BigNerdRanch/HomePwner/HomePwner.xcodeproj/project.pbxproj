@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C005A1A229D0A4C000B6AA9 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C005A19229D0A4C000B6AA9 /* ImageStore.swift */; };
 		7C5872152233D86300C47691 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5872142233D86300C47691 /* ItemCell.swift */; };
 		7C62A19922341B01004495AA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C62A19822341B01004495AA /* DetailViewController.swift */; };
 		7C6E4CB6229BD8D600602FA4 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E4CB5229BD8D600602FA4 /* DatePickerViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C005A19229D0A4C000B6AA9 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		7C5872142233D86300C47691 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		7C62A19822341B01004495AA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7C6E4CB5229BD8D600602FA4 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 				7C7C743D2232EB180037D71D /* ItemStoreViewModel.swift */,
 				7C5872142233D86300C47691 /* ItemCell.swift */,
 				7CAB359C22429A68002446EF /* ItemField.swift */,
+				7C005A19229D0A4C000B6AA9 /* ImageStore.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				7C7C743E2232EB180037D71D /* ItemStoreViewModel.swift in Sources */,
 				7C62A19922341B01004495AA /* DetailViewController.swift in Sources */,
 				7C6E4CB6229BD8D600602FA4 /* DatePickerViewController.swift in Sources */,
+				7C005A1A229D0A4C000B6AA9 /* ImageStore.swift in Sources */,
 				7C7C742A2232E0440037D71D /* AppDelegate.swift in Sources */,
 				7CAB359D22429A68002446EF /* ItemField.swift in Sources */,
 				7C5872152233D86300C47691 /* ItemCell.swift in Sources */,
