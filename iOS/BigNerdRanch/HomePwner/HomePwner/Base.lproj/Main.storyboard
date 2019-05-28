@@ -180,6 +180,12 @@
                                             <action selector="takePicture:" destination="E6w-VI-Xok" id="Dri-9z-5FW"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="v7Z-9M-gRt"/>
+                                    <barButtonItem systemItem="trash" id="Ikm-AU-o8N">
+                                        <connections>
+                                            <action selector="deletePicture:" destination="E6w-VI-Xok" id="ONB-Ng-RFT"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
