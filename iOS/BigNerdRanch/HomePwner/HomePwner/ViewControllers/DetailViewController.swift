@@ -12,9 +12,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var serialNumberField: UITextField!
     @IBOutlet weak var valueField: UITextField!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
-    //    @IBOutlet weak var changeDateButton: UIButton!
+    @IBOutlet weak var dateLabel: UIButton!
     
     var item: Item! {
         didSet {
@@ -40,8 +39,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        changeDateButton.layer.cornerRadius = 5.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +47,7 @@ class DetailViewController: UIViewController {
         nameField.text = item.name
         serialNumberField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
-        dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        dateLabel.setTitle(dateFormatter.string(from: item.dateCreated), for: .normal)
         
         imageView.image = imageStore.image(forKey: item.itemKey)
     }

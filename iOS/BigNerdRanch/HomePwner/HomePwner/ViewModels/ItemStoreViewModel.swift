@@ -28,6 +28,11 @@ class ItemStoreViewModel {
         return [.regular: allItems.filter({ $0.valueInDollars <= 50 }),
                 .premium: allItems.filter({ $0.valueInDollars > 50 })]
     }
+    let itemArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("items.archive")
+    }()
     
     var numberOfSection: Int {
         // Extra `1` for `No More Item` Section
@@ -50,8 +55,16 @@ class ItemStoreViewModel {
         /* If we need to populate item store with random items
          we can do so
         */
-        for _ in 0..<5 {
-            createItem()
+//        for _ in 0..<5 {
+//            createItem()
+//        }
+        do {
+            let data = try Data(contentsOf: itemArchiveURL)
+            if let archivedItems = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Item] {
+                allItems = archivedItems
+            }
+        } catch {
+            print("Could not load items.")
         }
     }
     
@@ -131,6 +144,17 @@ class ItemStoreViewModel {
             if let __premiumItems = premiumItems {
                 allItems.append(contentsOf: __premiumItems)
             }
+        }
+    }
+    
+    func saveChanges() {
+        print("Saving items to: \(itemArchiveURL.path)")
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: allItems, requiringSecureCoding: false)
+            try data.write(to: itemArchiveURL)
+            print("Successfully saved all of the items!!")
+        } catch {
+            print("Could not save any of the items!!")
         }
     }
 }
