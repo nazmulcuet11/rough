@@ -11,7 +11,7 @@ import UIKit
 class DrawView: UIView {
     var currentLines = [NSValue: Line]()
     var finishedLines = [Line]()
-    var moveRecognizer: UIPanGestureRecognizer!
+    var longPressRecognizer: UILongPressGestureRecognizer!
     
     var selectedLineIndex: Int? {
         didSet {
@@ -67,10 +67,10 @@ class DrawView: UIView {
         tapRecognizer.require(toFail: doubleTapRecognizer)
         addGestureRecognizer(tapRecognizer)
         
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
+        longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
         addGestureRecognizer(longPressRecognizer)
         
-        moveRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveLine(_:)))
+        let moveRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveLine(_:)))
         moveRecognizer.delegate = self
         moveRecognizer.cancelsTouchesInView = false
         addGestureRecognizer(moveRecognizer)
@@ -100,6 +100,8 @@ class DrawView: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print(#function)
 
+        selectedLineIndex = nil
+        
         for touch in touches {
             let location = touch.location(in: self)
             let newLine = Line(begin: location, end: location)
@@ -113,6 +115,8 @@ class DrawView: UIView {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         print(#function)
 
+        selectedLineIndex = nil
+        
         for touch in touches {
             let location = touch.location(in: self)
             let key = NSValue(nonretainedObject: touch)
@@ -125,6 +129,8 @@ class DrawView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print(#function)
 
+        selectedLineIndex = nil
+        
         for touch in touches {
             let location = touch.location(in: self)
             let key = NSValue(nonretainedObject: touch)
@@ -180,6 +186,9 @@ class DrawView: UIView {
         print("Long press recognized")
         
         if gestureRecognizer.state == .began {
+            // Clear selected line first time to hide any previous menu
+            selectedLineIndex = nil
+            
             let point = gestureRecognizer.location(in: self)
             selectedLineIndex = indexOfLine(at: point)
             
@@ -196,6 +205,10 @@ class DrawView: UIView {
     @objc func moveLine(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("Pan gesture recognized")
         
+        guard longPressRecognizer.state == .changed else {
+            return
+        }
+        
         if let index = selectedLineIndex {
             if gestureRecognizer.state == .changed {
                 let translation = gestureRecognizer.translation(in: self)
@@ -206,7 +219,6 @@ class DrawView: UIView {
                 finishedLines[index].end.y += translation.y
                 
                 gestureRecognizer.setTranslation(CGPoint.zero, in: self)
-                selectedLineIndex = nil
                 
                 setNeedsDisplay()
             }
