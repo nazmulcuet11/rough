@@ -22,6 +22,24 @@ class DrawView: UIView {
         }
     }
     
+    var maxRecordedVelocity: CGFloat = CGFloat.leastNonzeroMagnitude
+    var minRecordedVelocity: CGFloat = CGFloat.greatestFiniteMagnitude
+    var currentVelocity: CGFloat = 0 {
+        didSet {
+            maxRecordedVelocity = max(maxRecordedVelocity, currentVelocity)
+            minRecordedVelocity = min(minRecordedVelocity, currentVelocity)
+        }
+    }
+    
+    var lineWidth: CGFloat {
+        let minWidth: CGFloat = 1
+        let maxWidth: CGFloat = 20
+        
+        let width = ((maxRecordedVelocity - currentVelocity) / (maxRecordedVelocity - minRecordedVelocity)) * (maxWidth - minWidth) + minWidth
+        
+        return width
+    }
+    
     @IBInspectable var finishedLineColor: UIColor = UIColor.black {
         didSet {
             setNeedsDisplay()
@@ -34,19 +52,13 @@ class DrawView: UIView {
         }
     }
     
-    @IBInspectable var lineThikness: CGFloat = 10 {
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-    
     override var canBecomeFirstResponder: Bool {
         return true
     }
     
     func stroke(_ line: Line) {
         let path = UIBezierPath()
-        path.lineWidth = lineThikness
+        path.lineWidth = line.width
         path.lineCapStyle = .round
         
         path.move(to: line.begin)
@@ -104,7 +116,7 @@ class DrawView: UIView {
         
         for touch in touches {
             let location = touch.location(in: self)
-            let newLine = Line(begin: location, end: location)
+            let newLine = Line(begin: location, end: location, width: lineWidth)
             let key = NSValue(nonretainedObject: touch)
             currentLines[key] = newLine
         }
@@ -204,6 +216,13 @@ class DrawView: UIView {
     
     @objc func moveLine(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("Pan gesture recognized")
+        
+        let velocityInXY = gestureRecognizer.velocity(in: self)
+        currentVelocity = hypot(velocityInXY.x, velocityInXY.y)
+        
+        print("Current Drawing Velocity: \(currentVelocity) points per second")
+        print("maxRecordedVelocity: \(maxRecordedVelocity) points per second")
+        print("minRecordedVelocity: \(minRecordedVelocity) points per second")
         
         guard longPressRecognizer.state == .changed else {
             return
