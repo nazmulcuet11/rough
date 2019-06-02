@@ -133,6 +133,7 @@ class DrawView: UIView {
             let location = touch.location(in: self)
             let key = NSValue(nonretainedObject: touch)
             currentLines[key]?.end = location
+            currentLines[key]?.width = lineWidth
         }
         // Redraw the view at end of the run loop
         setNeedsDisplay()
@@ -147,6 +148,7 @@ class DrawView: UIView {
             let location = touch.location(in: self)
             let key = NSValue(nonretainedObject: touch)
             currentLines[key]?.end = location
+            currentLines[key]?.width = lineWidth
             
             if let line = currentLines[key] {
                 finishedLines.append(line)
