@@ -19,16 +19,19 @@ class PhotosViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = photoDataSource
+
+        updateDataSource()
         
         photoStore.fetchInterestingPhotos { (photoResult) -> Void in
-            switch photoResult {
-            case let .success(photos):
-                print("Successfully found \(photos.count) photos")
-                self.photoDataSource.photos = photos
-            case let .failure(error):
-                print("Error fetching interesting photos: \(error)")
-            }
-            self.collectionView.reloadSections(IndexSet(integer: 0))
+//            switch photoResult {
+//            case let .success(photos):
+//                print("Successfully found \(photos.count) photos")
+//                self.photoDataSource.photos = photos
+//            case let .failure(error):
+//                print("Error fetching interesting photos: \(error)")
+//            }
+//            self.collectionView.reloadSections(IndexSet(integer: 0))
+            self.updateDataSource()
         }
         
 //        photoStore.fetchPhotos(for: .recentPhotos) { (photoResult) -> Void in
@@ -65,6 +68,19 @@ class PhotosViewController: UIViewController {
         // So invalidating layout will recreate collection view cell and thus
         // adjust width of the cell
         collectionView.collectionViewLayout.invalidateLayout()
+    }
+
+    private func updateDataSource() {
+        photoStore.fetchAllPhotos() { photoResult in
+            switch photoResult {
+            case let .success(photos):
+                self.photoDataSource.photos = photos
+            case let .failure(error):
+                print("Error fetching all photos from core data: \(error)")
+                self.photoDataSource.photos.removeAll()
+            }
+            self.collectionView.reloadSections(IndexSet(integer: 0))
+        }
     }
 }
 

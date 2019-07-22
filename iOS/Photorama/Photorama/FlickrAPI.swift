@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum FlickrError: Error {
     case invalidJSONData
@@ -64,7 +65,7 @@ struct FlickrAPI {
         return components.url!
     }
     
-    private static func photo(from json: [String: Any]) -> Photo? {
+    private static func photo(from json: [String: Any], into context: NSManagedObjectContext) -> Photo? {
         guard let photoID = json["id"] as? String,
             let title = json["title"] as? String,
             let dateString = json["datetaken"] as? String,
@@ -73,11 +74,33 @@ struct FlickrAPI {
             let dateTaken = dateFormater.date(from: dateString) else {
                 return nil
         }
+
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+        let predicate = NSPredicate(format: "\(#keyPath(Photo.photoID)) == \(photoID)")
+        fetchRequest.predicate = predicate
+
+        var fetchedPhotos: [Photo]?
+        context.performAndWait {
+            fetchedPhotos = try? fetchRequest.execute()
+        }
+
+        if let existingPhoto = fetchedPhotos?.first {
+            return existingPhoto
+        }
+
+        var photo: Photo!
+        context.performAndWait {
+            photo = Photo(context: context)
+            photo.photoID = photoID
+            photo.title = title
+            photo.remoteURL = url as NSURL
+            photo.dateTaken = dateTaken as NSDate
+        }
         
-        return Photo(title: title, remoteURL: url, photoID: photoID, dateTaken: dateTaken)
+        return photo
     }
     
-    static func photos(from jsonData: Data) -> PhotoResult {
+    static func photos(from jsonData: Data, into context: NSManagedObjectContext) -> PhotoResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
             print(jsonObject)
@@ -91,7 +114,7 @@ struct FlickrAPI {
             
             var finalPhotos = [Photo]()
             for photoJSON in photosArray {
-                if let photo = photo(from: photoJSON) {
+                if let photo = photo(from: photoJSON, into: context) {
                     finalPhotos.append(photo)
                 }
             }
