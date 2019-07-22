@@ -4,3 +4,4 @@ build/
 Carthage/
 Cartfile.resolved
 node_modules/
+djangogirlsvenv/
