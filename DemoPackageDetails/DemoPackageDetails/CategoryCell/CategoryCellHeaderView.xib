@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Bold.ttf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+        <array key="SFProText-Semibold.ttf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="apy-Vx-8NE" userLabel="Category Cell Header" customClass="CategoryCellHeaderView" customModule="DemoPackageDetails" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVr-jl-7HB" userLabel="Header">
+                    <rect key="frame" x="0.0" y="0.0" width="368" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUe-Ms-mtT" userLabel="Category">
+                            <rect key="frame" x="16" y="16" width="82" height="23.5"/>
+                            <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="20"/>
+                            <color key="textColor" red="0.094117647060000004" green="0.50980392159999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Air Fare" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgO-py-inx" userLabel="Airfare">
+                            <rect key="frame" x="310.5" y="21" width="41.5" height="14"/>
+                            <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="12"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="MUe-Ms-mtT" firstAttribute="top" secondItem="kVr-jl-7HB" secondAttribute="top" constant="16" id="L8e-iW-kQ6"/>
+                        <constraint firstItem="MgO-py-inx" firstAttribute="centerY" secondItem="MUe-Ms-mtT" secondAttribute="centerY" id="bbp-TR-u8n"/>
+                        <constraint firstAttribute="height" constant="40" id="ddg-YW-NaS"/>
+                        <constraint firstAttribute="trailing" secondItem="MgO-py-inx" secondAttribute="trailing" constant="16" id="euH-pT-Gg0"/>
+                        <constraint firstItem="MUe-Ms-mtT" firstAttribute="leading" secondItem="kVr-jl-7HB" secondAttribute="leading" constant="16" id="rE0-e2-qgO"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FDG-WS-l31" userLabel="TimeStackView">
+                    <rect key="frame" x="0.0" y="40" width="368" height="75"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7B-6R-HTP">
+                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="75"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-Bx-FJc">
+                                    <rect key="frame" x="16" y="16" width="24.5" height="13"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="11"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Everyday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9y-He-XEP" userLabel="Departs">
+                                    <rect key="frame" x="16" y="29" width="62" height="46"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="15"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="eeR-Bx-FJc" firstAttribute="leading" secondItem="l7B-6R-HTP" secondAttribute="leading" constant="16" id="41W-ZR-PnK"/>
+                                <constraint firstItem="eeR-Bx-FJc" firstAttribute="top" secondItem="l7B-6R-HTP" secondAttribute="top" constant="16" id="5EJ-aU-AKV"/>
+                                <constraint firstItem="x9y-He-XEP" firstAttribute="top" secondItem="eeR-Bx-FJc" secondAttribute="bottom" id="Dcl-2Y-JUT"/>
+                                <constraint firstAttribute="bottom" secondItem="x9y-He-XEP" secondAttribute="bottom" id="PH8-dE-DTv"/>
+                                <constraint firstItem="x9y-He-XEP" firstAttribute="leading" secondItem="eeR-Bx-FJc" secondAttribute="leading" id="aME-9s-taa"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-EI-4hU">
+                            <rect key="frame" x="122.5" y="0.0" width="123" height="75"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0p-4w-pE7">
+                                    <rect key="frame" x="16" y="16" width="52" height="13"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="11"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="20 sep '19" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poy-gu-s7h" userLabel="PeriodFrom">
+                                    <rect key="frame" x="16" y="27.5" width="70.5" height="47.5"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="15"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="F0p-4w-pE7" firstAttribute="top" secondItem="fsu-EI-4hU" secondAttribute="top" constant="16" id="GPk-NR-TqB"/>
+                                <constraint firstItem="F0p-4w-pE7" firstAttribute="leading" secondItem="fsu-EI-4hU" secondAttribute="leading" constant="16" id="JFO-Xr-84L"/>
+                                <constraint firstItem="poy-gu-s7h" firstAttribute="top" secondItem="F0p-4w-pE7" secondAttribute="bottom" constant="-1.5" id="P3x-oP-rAZ"/>
+                                <constraint firstAttribute="bottom" secondItem="poy-gu-s7h" secondAttribute="bottom" id="mDy-e5-DCH"/>
+                                <constraint firstItem="poy-gu-s7h" firstAttribute="leading" secondItem="F0p-4w-pE7" secondAttribute="leading" id="uQt-Wf-Ujh"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87a-PY-feT">
+                            <rect key="frame" x="245.5" y="0.0" width="122.5" height="75"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid Till" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqe-7h-z4H">
+                                    <rect key="frame" x="16" y="16" width="40.5" height="13"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="11"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="31 Sep '19" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Is-I5-Ogl" userLabel="PeriodTo">
+                                    <rect key="frame" x="16" y="29" width="73" height="46"/>
+                                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="15"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="yqe-7h-z4H" firstAttribute="leading" secondItem="87a-PY-feT" secondAttribute="leading" constant="16" id="Sef-tc-5pE"/>
+                                <constraint firstItem="7Is-I5-Ogl" firstAttribute="top" secondItem="yqe-7h-z4H" secondAttribute="bottom" id="Zsh-RY-YbA"/>
+                                <constraint firstAttribute="bottom" secondItem="7Is-I5-Ogl" secondAttribute="bottom" id="cUZ-ag-kAr"/>
+                                <constraint firstItem="yqe-7h-z4H" firstAttribute="top" secondItem="87a-PY-feT" secondAttribute="top" constant="16" id="pf4-zw-tMm"/>
+                                <constraint firstItem="7Is-I5-Ogl" firstAttribute="leading" secondItem="yqe-7h-z4H" secondAttribute="leading" id="xLR-8e-a8m"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="leading" secondItem="kVr-jl-7HB" secondAttribute="leading" id="04I-J9-ZVl"/>
+                <constraint firstItem="FDG-WS-l31" firstAttribute="leading" secondItem="apy-Vx-8NE" secondAttribute="leading" id="HLL-oD-13w"/>
+                <constraint firstItem="FDG-WS-l31" firstAttribute="top" secondItem="kVr-jl-7HB" secondAttribute="bottom" id="KI6-ma-U8b"/>
+                <constraint firstAttribute="trailing" secondItem="FDG-WS-l31" secondAttribute="trailing" id="Y92-UQ-Ca6"/>
+                <constraint firstItem="kVr-jl-7HB" firstAttribute="trailing" secondItem="apy-Vx-8NE" secondAttribute="trailing" id="jvV-ry-c4x"/>
+                <constraint firstAttribute="bottom" secondItem="FDG-WS-l31" secondAttribute="bottom" constant="15" id="q6c-Mv-kFQ"/>
+                <constraint firstItem="kVr-jl-7HB" firstAttribute="top" secondItem="apy-Vx-8NE" secondAttribute="top" id="sXe-mJ-huD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="airfareLabel" destination="MgO-py-inx" id="Jpb-3D-zwr"/>
+                <outlet property="categoryLabel" destination="MUe-Ms-mtT" id="Yoe-Ju-mwi"/>
+                <outlet property="departsLabel" destination="x9y-He-XEP" id="EvE-Dc-6Ru"/>
+                <outlet property="periodFromLabel" destination="poy-gu-s7h" id="lu7-Nr-cyR"/>
+                <outlet property="periodToLabel" destination="7Is-I5-Ogl" id="WQt-sb-gUM"/>
+            </connections>
+            <point key="canvasLocation" x="-484.05797101449281" y="-162.05357142857142"/>
+        </view>
+    </objects>
+</document>

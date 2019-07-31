@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+        <array key="SFProText-Semibold.ttf">
+            <string>SFProText-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Zc-BG-oI2" userLabel="Price Per Pax" customClass="PricePerPaxView" customModule="DemoPackageDetails" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Per Adult:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9h-QO-aJv">
+                    <rect key="frame" x="0.0" y="8" width="140" height="14"/>
+                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="BDT 15,500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkQ-hy-KI4">
+                    <rect key="frame" x="0.0" y="24" width="79.5" height="21"/>
+                    <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="qkQ-hy-KI4" secondAttribute="bottom" id="5Rt-L3-mX7"/>
+                <constraint firstItem="qkQ-hy-KI4" firstAttribute="top" secondItem="J9h-QO-aJv" secondAttribute="bottom" constant="2" id="7Jf-Un-k3L"/>
+                <constraint firstItem="J9h-QO-aJv" firstAttribute="leading" secondItem="7Zc-BG-oI2" secondAttribute="leading" id="GHA-FX-ZQ6"/>
+                <constraint firstAttribute="trailing" secondItem="J9h-QO-aJv" secondAttribute="trailing" id="Gm4-Pc-OrD"/>
+                <constraint firstItem="qkQ-hy-KI4" firstAttribute="leading" secondItem="J9h-QO-aJv" secondAttribute="leading" id="R9M-BR-UoO"/>
+                <constraint firstItem="J9h-QO-aJv" firstAttribute="top" secondItem="7Zc-BG-oI2" secondAttribute="top" constant="8" id="euN-bf-vyu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="J9h-QO-aJv" id="yW7-2X-iYd"/>
+                <outlet property="valueLabel" destination="qkQ-hy-KI4" id="Cx7-fU-cYC"/>
+            </connections>
+            <point key="canvasLocation" x="-1005.7971014492755" y="656.58482142857144"/>
+        </view>
+    </objects>
+</document>

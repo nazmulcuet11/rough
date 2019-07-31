@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tNq-oh-rzF" userLabel="Single Cell Flight" customClass="SingleCellFlightView" customModule="DemoPackageDetails" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tripcoin-color" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-sr-APB">
+                    <rect key="frame" x="16" y="9" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ac6-sr-APB" secondAttribute="height" multiplier="1:1" id="1vC-sf-GIV"/>
+                        <constraint firstAttribute="height" constant="20" id="P7R-J2-Pno"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:45 Biman Bangladesh (BG707)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-eg-7hP">
+                    <rect key="frame" x="44" y="0.0" width="257.66666666666669" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="orZ-eg-7hP" secondAttribute="bottom" constant="8" id="S5V-Fa-wdO"/>
+                <constraint firstItem="orZ-eg-7hP" firstAttribute="leading" secondItem="ac6-sr-APB" secondAttribute="trailing" constant="8" id="Ue2-jw-jWC"/>
+                <constraint firstItem="orZ-eg-7hP" firstAttribute="centerY" secondItem="ac6-sr-APB" secondAttribute="centerY" id="bgq-DA-N2r"/>
+                <constraint firstItem="orZ-eg-7hP" firstAttribute="top" secondItem="tNq-oh-rzF" secondAttribute="top" id="h65-t1-bDQ"/>
+                <constraint firstItem="ac6-sr-APB" firstAttribute="leading" secondItem="tNq-oh-rzF" secondAttribute="leading" constant="16" id="omF-gn-8s9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="flightLogo" destination="ac6-sr-APB" id="Mix-kX-M40"/>
+                <outlet property="nameLabel" destination="orZ-eg-7hP" id="ABx-V5-XHd"/>
+            </connections>
+            <point key="canvasLocation" x="13.043478260869566" y="-145.92391304347828"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tripcoin-color" width="32" height="32"/>
+    </resources>
+</document>
